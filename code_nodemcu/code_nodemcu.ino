@@ -8,7 +8,7 @@
 
 const char* ssid = "troll";
 const char* password = "87654321";
-const char* mqtt_server = "103.150.93.184";
+const char* mqtt_server = "103.150.97.62";
 //D6 = Rx & D5 = Tx
 SoftwareSerial nodemcu(D6, D5);
 WiFiClient espClient;V

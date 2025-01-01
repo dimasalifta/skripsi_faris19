@@ -49,15 +49,15 @@ int rn, bn, gn;
 //>>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >
 //PILIH 4 SAJA
 
-MQUnifiedsensor S0(Board, Voltage_Resolution, ADC_Bit_Resolution, Pin_MQ2, Type_MQ2);
-MQUnifiedsensor S1(Board, Voltage_Resolution, ADC_Bit_Resolution, Pin_MQ4, Type_MQ4);
-MQUnifiedsensor S2(Board, Voltage_Resolution, ADC_Bit_Resolution, Pin_MQ5, Type_MQ5);
-MQUnifiedsensor S3(Board, Voltage_Resolution, ADC_Bit_Resolution, Pin_MQ9, Type_MQ9);
+//MQUnifiedsensor S0(Board, Voltage_Resolution, ADC_Bit_Resolution, Pin_MQ2, Type_MQ2);
+//MQUnifiedsensor S1(Board, Voltage_Resolution, ADC_Bit_Resolution, Pin_MQ4, Type_MQ4);
+//MQUnifiedsensor S2(Board, Voltage_Resolution, ADC_Bit_Resolution, Pin_MQ5, Type_MQ5);
+//MQUnifiedsensor S3(Board, Voltage_Resolution, ADC_Bit_Resolution, Pin_MQ9, Type_MQ9);
 
-//MQUnifiedsensor S0(Board, Voltage_Resolution, ADC_Bit_Resolution, Pin_MQ3, Type_MQ3);
-//MQUnifiedsensor S1(Board, Voltage_Resolution, ADC_Bit_Resolution, Pin_MQ7, Type_MQ7);
-//MQUnifiedsensor S2(Board, Voltage_Resolution, ADC_Bit_Resolution, Pin_MQ8, Type_MQ8);
-//MQUnifiedsensor S3(Board, Voltage_Resolution, ADC_Bit_Resolution, Pin_MQ135, Type_MQ135);
+MQUnifiedsensor S0(Board, Voltage_Resolution, ADC_Bit_Resolution, Pin_MQ3, Type_MQ3);
+MQUnifiedsensor S1(Board, Voltage_Resolution, ADC_Bit_Resolution, Pin_MQ7, Type_MQ7);
+MQUnifiedsensor S2(Board, Voltage_Resolution, ADC_Bit_Resolution, Pin_MQ8, Type_MQ8);
+MQUnifiedsensor S3(Board, Voltage_Resolution, ADC_Bit_Resolution, Pin_MQ135, Type_MQ135);
 //>>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>
 
 
@@ -89,18 +89,18 @@ void setup() {
 
   //>>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>
 
-  //PILIH 4 SAJA
-  S0.setA(658.71); S0.setB(-2.168); // mq2 propana (C3H8)
-  S1.setA(1012.7); S1.setB(-2.786); // mq4 methana (CH4)
-  S2.setA(80.897); S2.setB(-2.431); // mq5 LPG (C3H8 + C4H10)
-  S3.setA(1000.5); S3.setB(-2.186); // mq9 LPG (C3H8 + C4H10)
+  //  //PILIH 4 SAJA
+  //  S0.setA(658.71); S0.setB(-2.168); // mq2 propana (C3H8)
+  //  S1.setA(1012.7); S1.setB(-2.786); // mq4 methana (CH4)
+  //  S2.setA(80.897); S2.setB(-2.431); // mq5 LPG (C3H8 + C4H10)
+  //  S3.setA(1000.5); S3.setB(-2.186); // mq9 LPG (C3H8 + C4H10)
 
 
 
-  //  S0.setA(0.3934); S0.setB(-1.504); // mq3 alkohol (C2H6O)
-  //  S1.setA(99.042); S1.setB(-1.518); // mq7 karbon monoksida (CO)
-  //  S2.setA(976.97); S2.setB(-0.688); // mq8 hidrogen (H2)
-  //  S3.setA(102.2); S3.setB(-2.473);  // mq135 amonia (NH3)
+  S0.setA(0.3934); S0.setB(-1.504); // mq3 alkohol (C2H6O)
+  S1.setA(99.042); S1.setB(-1.518); // mq7 karbon monoksida (CO)
+  S2.setA(976.97); S2.setB(-0.688); // mq8 hidrogen (H2)
+  S3.setA(102.2); S3.setB(-2.473);  // mq135 amonia (NH3)
   //>>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >>> >> .
 
   //  S0.setA(1009.2); S0.setB(-2.35);  // mq6 LPG (C3H8 + C4H10)
@@ -124,15 +124,15 @@ void setup() {
     S1.update(); // Update data, the arduino will be read the voltage on the analog pin
     S2.update(); // Update data, the arduino will be read the voltage on the analog pin
     S3.update(); // Update data, the arduino will be read the voltage on the analog pin
-    calcR0_S0 += S0.calibrate(RatioMQ2CleanAir);
-    calcR0_S1 += S1.calibrate(RatioMQ4CleanAir);
-    calcR0_S2 += S2.calibrate(RatioMQ5CleanAir);
-    calcR0_S3 += S3.calibrate(RatioMQ9CleanAir);
+    //    calcR0_S0 += S0.calibrate(RatioMQ2CleanAir);
+    //    calcR0_S1 += S1.calibrate(RatioMQ4CleanAir);
+    //    calcR0_S2 += S2.calibrate(RatioMQ5CleanAir);
+    //    calcR0_S3 += S3.calibrate(RatioMQ9CleanAir);
 
-    //        calcR0_S0 += S0.calibrate(RatioMQ3CleanAir);
-    //        calcR0_S1 += S1.calibrate(RatioMQ7CleanAir);
-    //        calcR0_S2 += S2.calibrate(RatioMQ8CleanAir);
-    //        calcR0_S3 += S3.calibrate(RatioMQ135CleanAir);
+    calcR0_S0 += S0.calibrate(RatioMQ3CleanAir);
+    calcR0_S1 += S1.calibrate(RatioMQ7CleanAir);
+    calcR0_S2 += S2.calibrate(RatioMQ8CleanAir);
+    calcR0_S3 += S3.calibrate(RatioMQ135CleanAir);
 
     Serial.print(".");
     lcd.setCursor(i, 1);
@@ -218,25 +218,25 @@ void loop() {
   //  volt_S0 = S0.getvolt();
   //  rs_S0 = S0.getrs();
   //  ratio_S0 = S0.getratio();
-  ppm_S0 = S0.getppm();
+  ppm_S0 = S0.getPPM();
 
   //  adc_S1 = S1.getadc();
   //  volt_S1 = S1.getvolt();
   //  rs_S1 = S1.getrs();
   //  ratio_S1 = S1.getratio();
-  ppm_S1 = S1.getppm();
+  ppm_S1 = S1.getPPM();
 
   //  adc_S2 = S2.getadc();
   //  volt_S2 = S2.getvolt();
   //  rs_S2 = S2.getrs();
   //  ratio_S2 = S2.getratio();
-  ppm_S2 = S2.getppm();
+  ppm_S2 = S2.getPPM();
 
   //  adc_S3 = S3.getadc();
   //  volt_S3 = S3.getvolt();
   //  rs_S3 = S3.getrs();
   //  ratio_S3 = S3.getratio();
-  ppm_S3 = S3.getppm();
+  ppm_S3 = S3.getPPM();
 
   //
   //  //Assign collected data to JSON Object

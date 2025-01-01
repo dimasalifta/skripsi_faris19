@@ -3,7 +3,7 @@ import time
 import json
 import tkinter as tk
 
-ip_broker = "103.150.93.184"
+ip_broker = "digitalasistensi.com"
 port_broker = 1883
 topic = "skripsi_faris19"
 
@@ -26,14 +26,16 @@ def on_connect(client, userdata, flags, rc):
 # fungsi callback untuk saat pesan diterima
 def on_message(client, userdata, msg):
     # print(msg.topic+" "+str(msg.payload))
-    data = json.loads(msg.payload)
-    ## akses nilai tertentu dalam data JSON
-    R = data["R"]
-    G = data["G"]
-    B = data["B"]
-    print(str(R),str(G),str(B))
-    generate_color(R,G,B)
-
+    try:
+        data = json.loads(msg.payload)
+        ## akses nilai tertentu dalam data JSON
+        R = data["R"]
+        G = data["G"]
+        B = data["B"]
+        print(str(R),str(G),str(B))
+        generate_color(R,G,B)
+    except Exception as e:
+        print(f"ERROR ON MESSAGE: {e}")
 def show_payload():
     payload = "Ini adalah payload"
     payload_label.configure(text=payload)
